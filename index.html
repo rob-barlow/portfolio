@@ -7,21 +7,35 @@
     <title>Rob's Portfolio</title>
     <link rel="stylesheet" href="./src/css/style.css" />
     <link rel="stylesheet" href="./src/css/home.css" />
-
   </head>
   <body>
     <div class="row top-row">
       <div class="top-left grid-panel">
-        <p>Hi I'm Rob, a developer who loves developing. I love all sorts dev. Backend and front, graphics and hardware and everything inbetween.</p>
-
+        <div class="card">
+          <div class="title">Frontend Stack</div>
+          <div class="icon"><i class="fas fa-code"></i></div>
+          <div class="content">
+            <p>JS, TS, CSS, HTML</p>
+          </div>
+        </div>
       </div>
       <div class="top-middle grid-panel">
-        <p>Hi I'm Rob, a developer who loves developing. I love all sorts dev. Backend and front, graphics and hardware and everything inbetween.</p>
-
+        <div class="card">
+          <div class="title">Backend Stack</div>
+          <div class="icon"><i class="fas fa-code"></i></div>
+          <div class="content">
+          <p>Node.js, Express, MongoDB</p>
+          </div>
+        </div>
       </div>
       <div class="top-right grid-panel">
-        <p>Hi I'm Rob, a developer who loves developing. I love all sorts dev. Backend and front, graphics and hardware and everything inbetween.</p>
-
+        <div class="card">
+          <div class="title">Infrastructure</div>
+          <div class="icon"><i class="fas fa-code"></i></div>
+          <div class="content">
+          <p>AWS, Docker, Kubernetes</p>
+          </div>
+        </div>
       </div>
     </div>
     <div class="row middle-row">
@@ -34,8 +48,8 @@
         <p>Welcome to my portfolio!</p>
       </div>
       <div class="middle-right grid-panel">
-        <p>Hi I'm Rob, a developer who loves developing. I love all sorts dev. Backend and front, graphics and hardware and everything inbetween.</p>
-
+        <p>Check out my CV!</p>
+        <a href="./src/assets/CV.pdf" target="_blank">Here CV</a>
       </div>
     </div>
     <div class="row bottom-row">
@@ -45,45 +59,22 @@
 
       </div>
       <div class="bottom-middle bottom-panel grid-panel">
-        <a class="button" href="https://game-engine.robdev.uk">Check out my Game Engine!</a>
-        <p>I have built this game engine with minimal tutorials and no code from AI, often deriving the equations myself.</p>
+        <a class="button" href="https://game-engine.robdev.uk">Check out my infra skills!</a>
+        <p>I have built this full stack app using microservices architecture.</p>
       </div>
       <div class="bottom-right bottom-panel grid-panel">
-        <a class="button" href="https://game-engine.robdev.uk">Check out my Game Engine!</a>
-        <p>I have built this game engine with minimal tutorials and no code from AI, often deriving the equations myself.</p>
+        <a class="button" href="https://game-engine.robdev.uk">Coming Soon!</a>
+        <p>Another project will be here one day!</p>
       </div>
     </div>
 
-      <!-- <div class="top-left grid-panel">
+    <div class="overlay">
+      <iframe src="./src/assets/CV.pdf" frameborder="0"></iframe>
+    </div>
 
-      </div>
-      <div class="top-middle grid-panel">
-        <p>Hi I'm Rob, a developer who loves developing. I love all sorts dev. Backend and front, graphics and hardware and everything inbetween.</p>
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.10/dist/htmx.min.js" 
+        integrity="sha384-H5SrcfygHmAuTDZphMHqBJLc3FhssKjG7w/CeCpFReSfwBWDTKpkzPP8c+cLsK+V" 
+        crossorigin="anonymous"></script>
 
-      </div>
-      <div class="top-right grid-panel">
-
-      </div>
-      <div class="middle-left grid-panel">
-
-      </div>
-      <div class="middle-middle grid-panel">
-        <h1>Rob's Portfolio</h1>
-        <p>Welcome to my portfolio website!</p>
-      </div>
-      <div class="middle-right grid-panel">
-
-      </div>
-      <div class="bottom-left bottom-panel grid-panel">
-      <a class="button" href="https://game-engine.robdev.uk">Check out my Game Engine!</a>
-      <p>I have built this game engine with minimal tutorials and no code from AI, often deriving the equations myself.</p>
-
-      </div>
-      <div class="bottom-middle bottom-panel grid-panel">
-
-      </div>
-      <div class="bottom-right bottom-panel grid-panel">
-
-      </div> -->
   </body>
 </html>
