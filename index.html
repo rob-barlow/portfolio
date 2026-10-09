@@ -23,19 +23,11 @@
       </header>
 
       <section class="stack-cards">
-        <input class="sr-only" id="card-1" type="radio" name="panel" checked />
-        <input class="sr-only" id="card-2" type="radio" name="panel" />
-        <input class="sr-only" id="card-3" type="radio" name="panel" />
-        <input class="sr-only" id="card-4" type="radio" name="panel" />
-        <input class="sr-only" id="card-5" type="radio" name="panel" />
-        <input class="sr-only" id="card-6" type="radio" name="panel" />
-        <input class="sr-only" id="card-7" type="radio" name="panel" />
-        <input class="sr-only" id="card-8" type="radio" name="panel" />
 
         <article id="article-1">
           <header>
             <h2>Languages</h2>
-            <label for="card-2">&#10539;</label>
+            <button type="button" class="next" aria-label="Next skill card">&#10539;</button>
           </header>
           <div>
             <img src="https://picsum.photos/id/641/200/200" alt="watch tower">
@@ -49,7 +41,7 @@
         <article id="article-2">
           <header>
             <h2>Frameworks &amp; Libraries</h2>
-            <label for="card-3">&#10539;</label>
+            <button type="button" class="next" aria-label="Next skill card">&#10539;</button>
           </header>
           <div>
             <img src="https://picsum.photos/id/634/200/200" alt="forest mist">
@@ -62,7 +54,7 @@
         <article id="article-3">
           <header>
             <h2>Web Technologies</h2>
-            <label for="card-4">&#10539;</label>
+            <button type="button" class="next" aria-label="Next skill card">&#10539;</button>
           </header>
           <div>
             <img src="https://picsum.photos/id/824/200/200" alt="computer">
@@ -75,7 +67,7 @@
         <article id="article-4">
           <header>
             <h2>Databases</h2>
-            <label for="card-5">&#10539;</label>
+            <button type="button" class="next" aria-label="Next skill card">&#10539;</button>
           </header>
           <div>
             <img src="https://picsum.photos/id/1015/200/200" alt="river valley">
@@ -88,7 +80,7 @@
         <article id="article-5">
           <header>
             <h2>Testing</h2>
-            <label for="card-6">&#10539;</label>
+            <button type="button" class="next" aria-label="Next skill card">&#10539;</button>
           </header>
           <div>
             <img src="https://picsum.photos/id/1018/200/200" alt="mountains">
@@ -101,7 +93,7 @@
         <article id="article-6">
           <header>
             <h2>DevOps &amp; Tools</h2>
-            <label for="card-7">&#10539;</label>
+            <button type="button" class="next" aria-label="Next skill card">&#10539;</button>
           </header>
           <div>
             <img src="https://picsum.photos/id/1025/200/200" alt="pug dog">
@@ -114,7 +106,7 @@
         <article id="article-7">
           <header>
             <h2>Infrastructure &amp; Messaging</h2>
-            <label for="card-8">&#10539;</label>
+            <button type="button" class="next" aria-label="Next skill card">&#10539;</button>
           </header>
           <div>
             <img src="https://picsum.photos/id/1035/200/200" alt="waterfall">
@@ -127,7 +119,7 @@
         <article id="article-8">
           <header>
             <h2>Systems &amp; Embedded</h2>
-            <label for="card-1">&#10539;</label>
+            <button type="button" class="next" aria-label="Next skill card">&#10539;</button>
           </header>
           <div>
             <img src="https://picsum.photos/id/1043/200/200" alt="coastline">
@@ -170,6 +162,7 @@
       </section>
     </main>
 
+    <script type="module" src="/src/main.ts"></script>
     <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.10/dist/htmx.min.js"
         integrity="sha384-H5SrcfygHmAuTDZphMHqBJLc3FhssKjG7w/CeCpFReSfwBWDTKpkzPP8c+cLsK+V"
         crossorigin="anonymous"></script>

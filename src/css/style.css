@@ -11,15 +11,23 @@ font-weight: 400;
   font-style: normal;
 }
 
+/* Follows the front stack card's hue (set in main.ts); registered so it animates. */
+@property --accent-hue {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 85;
+}
+
 :root {
+  transition: --accent-hue 0.5s ease-in-out;
   --text: #6b6375;
   --text-h: #08060d;
   --bg: #fff;
   --border: #e5e4e7;
   --code-bg: #f4f3ec;
-  --accent: #65a30d;
-  --accent-bg: rgba(163, 230, 53, 0.15);
-  --accent-border: rgba(163, 230, 53, 0.6);
+  --accent: hsl(var(--accent-hue) 85% 34%);
+  --accent-bg: hsl(var(--accent-hue) 77% 56% / 0.15);
+  --accent-border: hsl(var(--accent-hue) 77% 56% / 0.6);
   --social-bg: rgba(244, 243, 236, 0.5);
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
@@ -50,9 +58,9 @@ font-weight: 400;
     --bg: #16171d;
     --border: #2e303a;
     --code-bg: #1f2028;
-    --accent: #a3e635;
-    --accent-bg: rgba(163, 230, 53, 0.12);
-    --accent-border: rgba(163, 230, 53, 0.5);
+    --accent: hsl(var(--accent-hue) 77% 56%);
+    --accent-bg: hsl(var(--accent-hue) 77% 56% / 0.12);
+    --accent-border: hsl(var(--accent-hue) 77% 56% / 0.5);
     --social-bg: rgba(47, 48, 58, 0.5);
     --shadow:
       rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;

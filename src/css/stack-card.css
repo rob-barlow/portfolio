@@ -1,4 +1,4 @@
-﻿@layer base, utilities,demo;
+@layer base, utilities,demo;
 @import url(https://fonts.bunny.net/css?family=kodchasan:200,400,600) layer(demo);
 
 @layer demo {
@@ -9,7 +9,6 @@
 			--_opacity-steps: 15; /* opacity behind */
 
 			--_ani-duration: 300ms; /* transition on card elements */
-			--_ani-delay: 200ms; /* delay on card elements (will be multiplied) */
 
 			/* calculations */
 			--_offset-steps-two: calc(var(--_offset-steps) * -1);
@@ -20,7 +19,7 @@
 
 			--opacity-steps-two: calc(1 - var(--_opacity-steps) * 0.02);
 			--opacity-steps-three: calc(1 - var(--_opacity-steps) * 0.04);
-		
+
 		@media (width > 600px){
 			--_offset-steps: 4em; /* distance up */
 		}
@@ -35,23 +34,29 @@
 			--_bg-alpha: .5;
 			--_border-radius: 10px;
 			--_bg-dot-offset: 20px;
+			/* colour steps round the hue wheel, starting at light green; --i is set in main.ts */
+			--_bg-clr: hsl(calc(85 + var(--i, 0) * 45) 77% 56% / var(--_bg-alpha));
 			--_bg-dot-color: var(--_bg-clr);
-	
+
+			/* hidden by default: behind the stack and invisible */
+			--_order: 0;
+			--_scale: var(--scale-steps-three);
+			--_opacity: 0;
+			--_offset: var(--_offset-steps-three);
+
 			position: relative;
 			isolation: isolate;
 			background-color: white;
 			grid-area:stack;
-			/*overflow: clip;*/
 			transition: 500ms ease-in-out;
 			border-radius: var(--_border-radius);
 
 			translate: 0 var(--_offset);
-			order: var(--_order);
-		z-index: var(--_order);
+			z-index: var(--_order);
 			scale: var(--_scale);
 			opacity: var(--_opacity);
 			font-family: "Kodchasan", sans-serif;
-			
+
 			&::before,
 			&::after{
 				content: "";
@@ -60,7 +65,6 @@
 				z-index: -1;
 			}
 			&::before {
-				z-index: -1;
 				inset: calc(var(--_bg-dot-offset) * -1);
 				background-image: radial-gradient(var(--_bg-dot-color) 1px, transparent 0px);
 				background-repeat: repeat;
@@ -68,399 +72,32 @@
 				background-position: center;
 				border-radius: calc(var(--_border-radius) + var(--_bg-dot-offset));
 			}
-		&::after{
-			background-color: white;
+			&::after{
+				background-color: white;
 				inset: 0;
-		}
-	
-	}
-	/* define each card styles - these custom properties are updated according to which card is currently selected */
-	article:nth-of-type(1){
-			--_bg-clr: rgba(163, 230, 53,var(--_bg-alpha,1));
-			--_order:   var(--_1-order);
-			--_scale:   var(--_1-scale);
-			--_opacity: var(--_1-opacity);
-			--_offset:  var(--_1-offset);
-			--_pointer-event: var(--_1-pointer-event);
-			--_pointer-cursor: var(--_1-pointer-cursor);
-	}
-	article:nth-of-type(2){
-			--_bg-clr: rgba(251, 191, 36,var(--_bg-alpha,1));
-			--_order:   var(--_2-order);
-			--_scale:   var(--_2-scale);
-			--_opacity: var(--_2-opacity);
-			--_offset:  var(--_2-offset);
-			--_pointer-event: var(--_2-pointer-event);
-			--_pointer-cursor: var(--_2-pointer-cursor);
-	}
-	article:nth-of-type(3){
-			--_bg-clr: rgba(249, 168, 212,var(--_bg-alpha,1));
-			--_order:   var(--_3-order);
-			--_scale:   var(--_3-scale);
-			--_opacity: var(--_3-opacity);
-			--_offset:  var(--_3-offset);
-			--_pointer-event: var(--_3-pointer-event);
-			--_pointer-cursor: var(--_3-pointer-cursor);
-	}
-	article:nth-of-type(4){
-			--_bg-clr: rgba(125, 211, 252,var(--_bg-alpha,1));
-			--_order:   var(--_4-order);
-			--_scale:   var(--_4-scale);
-			--_opacity: var(--_4-opacity);
-			--_offset:  var(--_4-offset);
-			--_pointer-event: var(--_4-pointer-event);
-			--_pointer-cursor: var(--_4-pointer-cursor);
-	}
-	article:nth-of-type(5){
-			--_bg-clr: rgba(196, 181, 253,var(--_bg-alpha,1));
-			--_order:   var(--_5-order);
-			--_scale:   var(--_5-scale);
-			--_opacity: var(--_5-opacity);
-			--_offset:  var(--_5-offset);
-			--_pointer-event: var(--_5-pointer-event);
-			--_pointer-cursor: var(--_5-pointer-cursor);
-	}
-	article:nth-of-type(6){
-			--_bg-clr: rgba(253, 164, 175,var(--_bg-alpha,1));
-			--_order:   var(--_6-order);
-			--_scale:   var(--_6-scale);
-			--_opacity: var(--_6-opacity);
-			--_offset:  var(--_6-offset);
-			--_pointer-event: var(--_6-pointer-event);
-			--_pointer-cursor: var(--_6-pointer-cursor);
-	}
-	article:nth-of-type(7){
-			--_bg-clr: rgba(94, 234, 212,var(--_bg-alpha,1));
-			--_order:   var(--_7-order);
-			--_scale:   var(--_7-scale);
-			--_opacity: var(--_7-opacity);
-			--_offset:  var(--_7-offset);
-			--_pointer-event: var(--_7-pointer-event);
-			--_pointer-cursor: var(--_7-pointer-cursor);
-	}
-	article:nth-of-type(8){
-			--_bg-clr: rgba(253, 186, 116,var(--_bg-alpha,1));
-			--_order:   var(--_8-order);
-			--_scale:   var(--_8-scale);
-			--_opacity: var(--_8-opacity);
-			--_offset:  var(--_8-offset);
-			--_pointer-event: var(--_8-pointer-event);
-			--_pointer-cursor: var(--_8-pointer-cursor);
+			}
 	}
 
-	section.stack-cards:has(input:nth-child(1):focus-visible) article:nth-of-type(1) label,
-	section.stack-cards:has(input:nth-child(2):focus-visible) article:nth-of-type(2) label,
-	section.stack-cards:has(input:nth-child(3):focus-visible) article:nth-of-type(3) label,
-	section.stack-cards:has(input:nth-child(4):focus-visible) article:nth-of-type(4) label,
-	section.stack-cards:has(input:nth-child(5):focus-visible) article:nth-of-type(5) label,
-	section.stack-cards:has(input:nth-child(6):focus-visible) article:nth-of-type(6) label,
-	section.stack-cards:has(input:nth-child(7):focus-visible) article:nth-of-type(7) label,
-	section.stack-cards:has(input:nth-child(8):focus-visible) article:nth-of-type(8) label{
-		rotate: 90deg;
+	/* card position in the stack: set by main.ts as data-pos */
+	article[data-pos="0"]{
+			--_order: 3;
+			--_scale: 1;
+			--_opacity: 1;
+			--_offset: 0;
+			--_pointer-event: auto;
+			--_pointer-cursor: pointer;
 	}
-
-	/* 1 checked: front card is 1, then the next two behind it, the rest hidden */
-	section.stack-cards:has(input:nth-child(1):checked){
-			--_1-order: 3;
-			--_1-scale: 1;
-			--_1-opacity: 1;
-			--_1-offset: 0;
-			--_1-pointer-event: auto;
-			--_1-pointer-cursor: pointer;
-			--_2-order: 2;
-			--_2-scale: var(--scale-steps-two);
-			--_2-opacity: var(--opacity-steps-two);
-			--_2-offset: var(--_offset-steps-two);
-			--_3-order: 1;
-			--_3-scale: var(--scale-steps-three);
-			--_3-opacity: var(--opacity-steps-three);
-			--_3-offset: var(--_offset-steps-three);
-			--_4-order: 0;
-			--_4-scale: var(--scale-steps-three);
-			--_4-opacity: 0;
-			--_4-offset: var(--_offset-steps-three);
-			--_5-order: 0;
-			--_5-scale: var(--scale-steps-three);
-			--_5-opacity: 0;
-			--_5-offset: var(--_offset-steps-three);
-			--_6-order: 0;
-			--_6-scale: var(--scale-steps-three);
-			--_6-opacity: 0;
-			--_6-offset: var(--_offset-steps-three);
-			--_7-order: 0;
-			--_7-scale: var(--scale-steps-three);
-			--_7-opacity: 0;
-			--_7-offset: var(--_offset-steps-three);
-			--_8-order: 0;
-			--_8-scale: var(--scale-steps-three);
-			--_8-opacity: 0;
-			--_8-offset: var(--_offset-steps-three);
+	article[data-pos="1"]{
+			--_order: 2;
+			--_scale: var(--scale-steps-two);
+			--_opacity: var(--opacity-steps-two);
+			--_offset: var(--_offset-steps-two);
 	}
-
-	/* 2 checked: front card is 2, then the next two behind it, the rest hidden */
-	section.stack-cards:has(input:nth-child(2):checked){
-			--_1-order: 0;
-			--_1-scale: var(--scale-steps-three);
-			--_1-opacity: 0;
-			--_1-offset: var(--_offset-steps-three);
-			--_2-order: 3;
-			--_2-scale: 1;
-			--_2-opacity: 1;
-			--_2-offset: 0;
-			--_2-pointer-event: auto;
-			--_2-pointer-cursor: pointer;
-			--_3-order: 2;
-			--_3-scale: var(--scale-steps-two);
-			--_3-opacity: var(--opacity-steps-two);
-			--_3-offset: var(--_offset-steps-two);
-			--_4-order: 1;
-			--_4-scale: var(--scale-steps-three);
-			--_4-opacity: var(--opacity-steps-three);
-			--_4-offset: var(--_offset-steps-three);
-			--_5-order: 0;
-			--_5-scale: var(--scale-steps-three);
-			--_5-opacity: 0;
-			--_5-offset: var(--_offset-steps-three);
-			--_6-order: 0;
-			--_6-scale: var(--scale-steps-three);
-			--_6-opacity: 0;
-			--_6-offset: var(--_offset-steps-three);
-			--_7-order: 0;
-			--_7-scale: var(--scale-steps-three);
-			--_7-opacity: 0;
-			--_7-offset: var(--_offset-steps-three);
-			--_8-order: 0;
-			--_8-scale: var(--scale-steps-three);
-			--_8-opacity: 0;
-			--_8-offset: var(--_offset-steps-three);
-	}
-
-	/* 3 checked: front card is 3, then the next two behind it, the rest hidden */
-	section.stack-cards:has(input:nth-child(3):checked){
-			--_1-order: 0;
-			--_1-scale: var(--scale-steps-three);
-			--_1-opacity: 0;
-			--_1-offset: var(--_offset-steps-three);
-			--_2-order: 0;
-			--_2-scale: var(--scale-steps-three);
-			--_2-opacity: 0;
-			--_2-offset: var(--_offset-steps-three);
-			--_3-order: 3;
-			--_3-scale: 1;
-			--_3-opacity: 1;
-			--_3-offset: 0;
-			--_3-pointer-event: auto;
-			--_3-pointer-cursor: pointer;
-			--_4-order: 2;
-			--_4-scale: var(--scale-steps-two);
-			--_4-opacity: var(--opacity-steps-two);
-			--_4-offset: var(--_offset-steps-two);
-			--_5-order: 1;
-			--_5-scale: var(--scale-steps-three);
-			--_5-opacity: var(--opacity-steps-three);
-			--_5-offset: var(--_offset-steps-three);
-			--_6-order: 0;
-			--_6-scale: var(--scale-steps-three);
-			--_6-opacity: 0;
-			--_6-offset: var(--_offset-steps-three);
-			--_7-order: 0;
-			--_7-scale: var(--scale-steps-three);
-			--_7-opacity: 0;
-			--_7-offset: var(--_offset-steps-three);
-			--_8-order: 0;
-			--_8-scale: var(--scale-steps-three);
-			--_8-opacity: 0;
-			--_8-offset: var(--_offset-steps-three);
-	}
-
-	/* 4 checked: front card is 4, then the next two behind it, the rest hidden */
-	section.stack-cards:has(input:nth-child(4):checked){
-			--_1-order: 0;
-			--_1-scale: var(--scale-steps-three);
-			--_1-opacity: 0;
-			--_1-offset: var(--_offset-steps-three);
-			--_2-order: 0;
-			--_2-scale: var(--scale-steps-three);
-			--_2-opacity: 0;
-			--_2-offset: var(--_offset-steps-three);
-			--_3-order: 0;
-			--_3-scale: var(--scale-steps-three);
-			--_3-opacity: 0;
-			--_3-offset: var(--_offset-steps-three);
-			--_4-order: 3;
-			--_4-scale: 1;
-			--_4-opacity: 1;
-			--_4-offset: 0;
-			--_4-pointer-event: auto;
-			--_4-pointer-cursor: pointer;
-			--_5-order: 2;
-			--_5-scale: var(--scale-steps-two);
-			--_5-opacity: var(--opacity-steps-two);
-			--_5-offset: var(--_offset-steps-two);
-			--_6-order: 1;
-			--_6-scale: var(--scale-steps-three);
-			--_6-opacity: var(--opacity-steps-three);
-			--_6-offset: var(--_offset-steps-three);
-			--_7-order: 0;
-			--_7-scale: var(--scale-steps-three);
-			--_7-opacity: 0;
-			--_7-offset: var(--_offset-steps-three);
-			--_8-order: 0;
-			--_8-scale: var(--scale-steps-three);
-			--_8-opacity: 0;
-			--_8-offset: var(--_offset-steps-three);
-	}
-
-	/* 5 checked: front card is 5, then the next two behind it, the rest hidden */
-	section.stack-cards:has(input:nth-child(5):checked){
-			--_1-order: 0;
-			--_1-scale: var(--scale-steps-three);
-			--_1-opacity: 0;
-			--_1-offset: var(--_offset-steps-three);
-			--_2-order: 0;
-			--_2-scale: var(--scale-steps-three);
-			--_2-opacity: 0;
-			--_2-offset: var(--_offset-steps-three);
-			--_3-order: 0;
-			--_3-scale: var(--scale-steps-three);
-			--_3-opacity: 0;
-			--_3-offset: var(--_offset-steps-three);
-			--_4-order: 0;
-			--_4-scale: var(--scale-steps-three);
-			--_4-opacity: 0;
-			--_4-offset: var(--_offset-steps-three);
-			--_5-order: 3;
-			--_5-scale: 1;
-			--_5-opacity: 1;
-			--_5-offset: 0;
-			--_5-pointer-event: auto;
-			--_5-pointer-cursor: pointer;
-			--_6-order: 2;
-			--_6-scale: var(--scale-steps-two);
-			--_6-opacity: var(--opacity-steps-two);
-			--_6-offset: var(--_offset-steps-two);
-			--_7-order: 1;
-			--_7-scale: var(--scale-steps-three);
-			--_7-opacity: var(--opacity-steps-three);
-			--_7-offset: var(--_offset-steps-three);
-			--_8-order: 0;
-			--_8-scale: var(--scale-steps-three);
-			--_8-opacity: 0;
-			--_8-offset: var(--_offset-steps-three);
-	}
-
-	/* 6 checked: front card is 6, then the next two behind it, the rest hidden */
-	section.stack-cards:has(input:nth-child(6):checked){
-			--_1-order: 0;
-			--_1-scale: var(--scale-steps-three);
-			--_1-opacity: 0;
-			--_1-offset: var(--_offset-steps-three);
-			--_2-order: 0;
-			--_2-scale: var(--scale-steps-three);
-			--_2-opacity: 0;
-			--_2-offset: var(--_offset-steps-three);
-			--_3-order: 0;
-			--_3-scale: var(--scale-steps-three);
-			--_3-opacity: 0;
-			--_3-offset: var(--_offset-steps-three);
-			--_4-order: 0;
-			--_4-scale: var(--scale-steps-three);
-			--_4-opacity: 0;
-			--_4-offset: var(--_offset-steps-three);
-			--_5-order: 0;
-			--_5-scale: var(--scale-steps-three);
-			--_5-opacity: 0;
-			--_5-offset: var(--_offset-steps-three);
-			--_6-order: 3;
-			--_6-scale: 1;
-			--_6-opacity: 1;
-			--_6-offset: 0;
-			--_6-pointer-event: auto;
-			--_6-pointer-cursor: pointer;
-			--_7-order: 2;
-			--_7-scale: var(--scale-steps-two);
-			--_7-opacity: var(--opacity-steps-two);
-			--_7-offset: var(--_offset-steps-two);
-			--_8-order: 1;
-			--_8-scale: var(--scale-steps-three);
-			--_8-opacity: var(--opacity-steps-three);
-			--_8-offset: var(--_offset-steps-three);
-	}
-
-	/* 7 checked: front card is 7, then the next two behind it, the rest hidden */
-	section.stack-cards:has(input:nth-child(7):checked){
-			--_1-order: 1;
-			--_1-scale: var(--scale-steps-three);
-			--_1-opacity: var(--opacity-steps-three);
-			--_1-offset: var(--_offset-steps-three);
-			--_2-order: 0;
-			--_2-scale: var(--scale-steps-three);
-			--_2-opacity: 0;
-			--_2-offset: var(--_offset-steps-three);
-			--_3-order: 0;
-			--_3-scale: var(--scale-steps-three);
-			--_3-opacity: 0;
-			--_3-offset: var(--_offset-steps-three);
-			--_4-order: 0;
-			--_4-scale: var(--scale-steps-three);
-			--_4-opacity: 0;
-			--_4-offset: var(--_offset-steps-three);
-			--_5-order: 0;
-			--_5-scale: var(--scale-steps-three);
-			--_5-opacity: 0;
-			--_5-offset: var(--_offset-steps-three);
-			--_6-order: 0;
-			--_6-scale: var(--scale-steps-three);
-			--_6-opacity: 0;
-			--_6-offset: var(--_offset-steps-three);
-			--_7-order: 3;
-			--_7-scale: 1;
-			--_7-opacity: 1;
-			--_7-offset: 0;
-			--_7-pointer-event: auto;
-			--_7-pointer-cursor: pointer;
-			--_8-order: 2;
-			--_8-scale: var(--scale-steps-two);
-			--_8-opacity: var(--opacity-steps-two);
-			--_8-offset: var(--_offset-steps-two);
-	}
-
-	/* 8 checked: front card is 8, then the next two behind it, the rest hidden */
-	section.stack-cards:has(input:nth-child(8):checked){
-			--_1-order: 2;
-			--_1-scale: var(--scale-steps-two);
-			--_1-opacity: var(--opacity-steps-two);
-			--_1-offset: var(--_offset-steps-two);
-			--_2-order: 1;
-			--_2-scale: var(--scale-steps-three);
-			--_2-opacity: var(--opacity-steps-three);
-			--_2-offset: var(--_offset-steps-three);
-			--_3-order: 0;
-			--_3-scale: var(--scale-steps-three);
-			--_3-opacity: 0;
-			--_3-offset: var(--_offset-steps-three);
-			--_4-order: 0;
-			--_4-scale: var(--scale-steps-three);
-			--_4-opacity: 0;
-			--_4-offset: var(--_offset-steps-three);
-			--_5-order: 0;
-			--_5-scale: var(--scale-steps-three);
-			--_5-opacity: 0;
-			--_5-offset: var(--_offset-steps-three);
-			--_6-order: 0;
-			--_6-scale: var(--scale-steps-three);
-			--_6-opacity: 0;
-			--_6-offset: var(--_offset-steps-three);
-			--_7-order: 0;
-			--_7-scale: var(--scale-steps-three);
-			--_7-opacity: 0;
-			--_7-offset: var(--_offset-steps-three);
-			--_8-order: 3;
-			--_8-scale: 1;
-			--_8-opacity: 1;
-			--_8-offset: 0;
-			--_8-pointer-event: auto;
-			--_8-pointer-cursor: pointer;
+	article[data-pos="2"]{
+			--_order: 1;
+			--_scale: var(--scale-steps-three);
+			--_opacity: var(--opacity-steps-three);
+			--_offset: var(--_offset-steps-three);
 	}
 
 	article > header{
@@ -472,14 +109,18 @@
 			transition: background-color var(--_ani-duration) ease-in-out;
 			border-radius: var(--_border-radius) var(--_border-radius) 0 0;
 	}
-	article > header > label{
-		padding: 0 ;
+	article > header > .next{
+			padding: 0;
+			border: 0;
+			background: none;
+			font: inherit;
 			color: #333;
-			transition: rotate 300ms ease-in-out;    
+			transition: rotate 300ms ease-in-out;
 			pointer-events: var(--_pointer-event,none);
 			cursor: var(--_pointer-cursor, none);
 	}
-	article > header > label:hover{
+	article > header > .next:hover,
+	article > header > .next:focus-visible{
 			rotate: 90deg;
 	}
 	article > header > h2 {
@@ -487,7 +128,6 @@
 			font-weight: 500;
 			font-size: 1.1rem;
 			transition: translate var(--_ani-duration) ease-in-out, opacity var(--_ani-duration) ease-in-out;
-			transition-delay: var(--_delay-h2,0);
 			opacity: var(--_opacity,0);
 	}
 	article > div{
@@ -500,7 +140,6 @@
 		@media (width > 600px){
 			grid-template-columns: 1fr 2fr;
 		}
-		
 	}
 	article img{
 		width: 100%;
@@ -508,7 +147,6 @@
 		object-fit: cover;
 		transition:  var(--_ani-duration) ease-in-out;
 		opacity: var(--_opacity,0);
-
 	}
 	article .stack-card{
 		width: 100%;
@@ -516,25 +154,10 @@
 		overflow-y: auto;
 	}
 	article p{
-			transition: var(--_ani-duration) ease-in-out;
-		  transition-delay: 500ms;
-			opacity: var(--_opacity,0);
-			margin: 0 0 1rem 0;
-			font-size: .9rem;
-	}
-}
-
-
-@layer utilities{
-	.sr-only {
-			position: absolute;
-			width: 1px;
-			height: 1px;
-			padding: 0;
-			margin: -1px;
-			overflow: hidden;
-			clip: rect(0, 0, 0, 0);
-			white-space: nowrap;
-			border-width: 0;
+		transition: var(--_ani-duration) ease-in-out;
+		transition-delay: 500ms;
+		opacity: var(--_opacity,0);
+		margin: 0 0 1rem 0;
+		font-size: .9rem;
 	}
 }
