@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -7,74 +7,171 @@
     <title>Rob's Portfolio</title>
     <link rel="stylesheet" href="./src/css/style.css" />
     <link rel="stylesheet" href="./src/css/home.css" />
+    <link rel="stylesheet" href="./src/css/stack-card.css" />
   </head>
   <body>
-    <div class="row top-row">
-      <div class="top-left grid-panel">
-        <div class="card">
-          <div class="title">Frontend Stack</div>
-          <div class="icon"><i class="fas fa-code"></i></div>
-          <div class="content">
-            <p>JS, TS, CSS, HTML</p>
+    <main>
+      <div class="top">
+      <header>
+        <p class="label">Professional Cool Guy</p>
+        <h1>Hi, I'm <span class="name">Rob.</span></h1>
+        <p class="intro">
+          I love developing. Backend and front, graphics and hardware, and
+          everything in between.
+        </p>
+        <a class="cv" href="./src/assets/CV.pdf" target="_blank" rel="noopener">Read my CV <span>&rarr;</span></a>
+      </header>
+
+      <section class="stack-cards">
+        <input class="sr-only" id="card-1" type="radio" name="panel" checked />
+        <input class="sr-only" id="card-2" type="radio" name="panel" />
+        <input class="sr-only" id="card-3" type="radio" name="panel" />
+        <input class="sr-only" id="card-4" type="radio" name="panel" />
+        <input class="sr-only" id="card-5" type="radio" name="panel" />
+        <input class="sr-only" id="card-6" type="radio" name="panel" />
+        <input class="sr-only" id="card-7" type="radio" name="panel" />
+        <input class="sr-only" id="card-8" type="radio" name="panel" />
+
+        <article id="article-1">
+          <header>
+            <h2>Languages</h2>
+            <label for="card-2">&#10539;</label>
+          </header>
+          <div>
+            <img src="https://picsum.photos/id/641/200/200" alt="watch tower">
+            <div class="stack-card">
+              <p>C#, JavaScript, SQL, HTML5, CSS3, Bash, Rust</p>
+              <p><strong>Familiar with:</strong> Python, PHP, Swift, Batch</p>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="top-middle grid-panel">
-        <div class="card">
-          <div class="title">Backend Stack</div>
-          <div class="icon"><i class="fas fa-code"></i></div>
-          <div class="content">
-          <p>Node.js, Express, MongoDB</p>
+        </article>
+
+        <article id="article-2">
+          <header>
+            <h2>Frameworks &amp; Libraries</h2>
+            <label for="card-3">&#10539;</label>
+          </header>
+          <div>
+            <img src="https://picsum.photos/id/634/200/200" alt="forest mist">
+            <div class="stack-card">
+              <p>.NET, ASP.NET Core, Entity Framework Core, React, Blazor, Serilog</p>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="top-right grid-panel">
-        <div class="card">
-          <div class="title">Infrastructure</div>
-          <div class="icon"><i class="fas fa-code"></i></div>
-          <div class="content">
-          <p>AWS, Docker, Kubernetes</p>
+        </article>
+
+        <article id="article-3">
+          <header>
+            <h2>Web Technologies</h2>
+            <label for="card-4">&#10539;</label>
+          </header>
+          <div>
+            <img src="https://picsum.photos/id/824/200/200" alt="computer">
+            <div class="stack-card">
+              <p>REST APIs, HTTP/HTTPS, WebSockets, JSON, OAuth, Swagger, OpenAPI</p>
+            </div>
           </div>
+        </article>
+
+        <article id="article-4">
+          <header>
+            <h2>Databases</h2>
+            <label for="card-5">&#10539;</label>
+          </header>
+          <div>
+            <img src="https://picsum.photos/id/1015/200/200" alt="river valley">
+            <div class="stack-card">
+              <p>Microsoft SQL Server, PostgreSQL</p>
+            </div>
+          </div>
+        </article>
+
+        <article id="article-5">
+          <header>
+            <h2>Testing</h2>
+            <label for="card-6">&#10539;</label>
+          </header>
+          <div>
+            <img src="https://picsum.photos/id/1018/200/200" alt="mountains">
+            <div class="stack-card">
+              <p>xUnit, NUnit, Selenium</p>
+            </div>
+          </div>
+        </article>
+
+        <article id="article-6">
+          <header>
+            <h2>DevOps &amp; Tools</h2>
+            <label for="card-7">&#10539;</label>
+          </header>
+          <div>
+            <img src="https://picsum.photos/id/1025/200/200" alt="pug dog">
+            <div class="stack-card">
+              <p>Git, Docker, Bitbucket Pipelines, CI/CD, Seq, Jira</p>
+            </div>
+          </div>
+        </article>
+
+        <article id="article-7">
+          <header>
+            <h2>Infrastructure &amp; Messaging</h2>
+            <label for="card-8">&#10539;</label>
+          </header>
+          <div>
+            <img src="https://picsum.photos/id/1035/200/200" alt="waterfall">
+            <div class="stack-card">
+              <p><strong>Familiar with:</strong> Kubernetes, RabbitMQ, Azure Service Bus, Azure Container Registry</p>
+            </div>
+          </div>
+        </article>
+
+        <article id="article-8">
+          <header>
+            <h2>Systems &amp; Embedded</h2>
+            <label for="card-1">&#10539;</label>
+          </header>
+          <div>
+            <img src="https://picsum.photos/id/1043/200/200" alt="coastline">
+            <div class="stack-card">
+              <p><strong>Operating Systems:</strong> Windows, Linux</p>
+              <p><strong>Embedded:</strong> Arduino</p>
+              <p><strong>Familiar with:</strong> ESP32</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      </div>
+
+      <section>
+        <p class="label">Projects</p>
+        <a class="project" href="https://game-engine.robdev.uk">
+          <span class="num">01</span>
+          <span class="text">
+            <strong>Game Engine</strong>
+            <em>A game engine written in TypeScript, built from scratch with minimal tutorials and no AI-written code, deriving the maths myself. It began as a CPU-only renderer and now uses OpenGL to run on the GPU too.</em>
+          </span>
+          <span class="arrow">&nearr;</span>
+        </a>
+        <a class="project" href="https://game-engine.robdev.uk">
+          <span class="num">02</span>
+          <span class="text">
+            <strong>Microservices App</strong>
+            <em>A full stack app built using microservices architecture.</em>
+          </span>
+          <span class="arrow">&nearr;</span>
+        </a>
+        <div class="project soon">
+          <span class="num">03</span>
+          <span class="text">
+            <strong>Coming soon</strong>
+            <em>Another project will be here one day.</em>
+          </span>
         </div>
-      </div>
-    </div>
-    <div class="row middle-row">
-      <div class="middle-left grid-panel">
-        <p>Hi I'm Rob, a developer who loves developing. I love all sorts dev. Backend and front, graphics and hardware and everything inbetween.</p>
+      </section>
+    </main>
 
-      </div>
-      <div class="middle-middle grid-panel">
-        <h1>Rob's Portfolio</h1>
-        <p>Welcome to my portfolio!</p>
-      </div>
-      <div class="middle-right grid-panel">
-        <p>Check out my CV!</p>
-        <a href="./src/assets/CV.pdf" target="_blank">Here CV</a>
-      </div>
-    </div>
-    <div class="row bottom-row">
-      <div class="bottom-left bottom-panel grid-panel">
-        <a class="button" href="https://game-engine.robdev.uk">Check out my Game Engine!</a>
-        <p>I have built this game engine with minimal tutorials and no code from AI, often deriving the equations myself.</p>
-
-      </div>
-      <div class="bottom-middle bottom-panel grid-panel">
-        <a class="button" href="https://game-engine.robdev.uk">Check out my infra skills!</a>
-        <p>I have built this full stack app using microservices architecture.</p>
-      </div>
-      <div class="bottom-right bottom-panel grid-panel">
-        <a class="button" href="https://game-engine.robdev.uk">Coming Soon!</a>
-        <p>Another project will be here one day!</p>
-      </div>
-    </div>
-
-    <div class="overlay">
-      <iframe src="./src/assets/CV.pdf" frameborder="0"></iframe>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.10/dist/htmx.min.js" 
-        integrity="sha384-H5SrcfygHmAuTDZphMHqBJLc3FhssKjG7w/CeCpFReSfwBWDTKpkzPP8c+cLsK+V" 
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.10/dist/htmx.min.js"
+        integrity="sha384-H5SrcfygHmAuTDZphMHqBJLc3FhssKjG7w/CeCpFReSfwBWDTKpkzPP8c+cLsK+V"
         crossorigin="anonymous"></script>
-
   </body>
 </html>
